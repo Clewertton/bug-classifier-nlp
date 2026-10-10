@@ -1,0 +1,364 @@
+id,titulo,descricao,modulo,severidade
+1,"Crash no login","Vazamento de memória causa crash no servidor ao autenticar múltiplos usuários em produção",Autenticação,Crítico
+2,"Acesso indevido","Falha de validação de token permite acesso não autorizado a endpoints privados da API",Segurança,Crítico
+3,"Botão desalinhado","Botão de envio de formulário está desalinhado em telas com resolução Safari mobile",UI/UX,Baixo
+4,"Erro de Pagamento","Erro 500 no checkout ao tentar processar transações com cartão de crédito Mastercard",Checkout,Crítico
+5,"Cor de cabeçalho","Cor do cabeçalho diverge do especificado no arquivo do Figma",UI/UX,Baixo
+6,"SQL Injection","Campo de busca da landing page vulnerável a injeção de scripts SQL",Segurança,Crítico
+7,"Lentidão na busca","Pesquisa de produtos apresenta latência acima de 8 segundos no pico de uso",Performance,Alta
+8,"Modal travado","Modal de confirmação de exclusão não responde ao clique do botão fechar",UI/UX,Baixo
+9,"Log com dados sensíveis","Chaves secretas e tokens JWT sendo gravados em texto limpo nos logs do CloudWatch",Segurança,Crítico
+10,"Queda de Banco","Timeout persistente na conexão com a instância principal do PostgreSQL",Infraestrutura,Crítico
+11,"Fonte pequena","Fonte das letras do rodapé está menor que o padrão mínimo de acessibilidade",UI/UX,Baixo
+12,"API indisponível","Microsserviço de usuários retornando status 503 Service Unavailable",Infraestrutura,Crítico
+13,"XSS no comentário","Campo de comentário aceita tags script executando código arbitrário no navegador",Segurança,Alta
+14,"Lixeira com cor errada","Ícone da lixeira exibe cor primária ao invés de vermelho de alerta",UI/UX,Baixo
+15,"Consumo alto de CPU","Processamento de relatórios em PDF consumindo 100% do núcleo do servidor",Performance,Alta
+16,"Bloqueio de login","Bloqueio de acesso a conta do sistema após atualização do sistema de autenticação, impedindo login de usuários legítimos.","Autenticação","Crítico"
+17,"Sistema travado","Tela congela impedindo o usuário de prosseguir com o pagamento e finalização","Checkout","Crítico"
+18,"Impedido de acessar","Erro na atualização impede todos os usuários de acessarem o painel de controle principal","Autenticação","Crítico"
+19,"Alteração de Senha","Não consigo alterar minha senha, pois precisa da permissão do oraganizador da equipe","Autenticação","Alta"
+20,"Faturamento não processado","Não consigo fazer o faturamento da nota fiscal, pois está ausente o cnpj do cliente","Checkout","Crítico"
+21,"Sessão expira cedo","O token de sessão vence antes do tempo configurado e força novo login após poucos minutos",Autenticação,Alta
+22,"Não fica conectado","Entro no sistema, mas quando abro outra página ele pede minha senha de novo",Autenticação,Alta
+23,"Redirecionamento após login","O callback de autenticação retorna para uma rota inexistente depois do login via SSO",Autenticação,Alta
+24,"Volta para a tela inicial","Faço o login, aparece que deu certo, mas volto para a tela de entrar",Autenticação,Alta
+25,"Refresh token inválido","A renovação do refresh token falha após a expiração do access token",Autenticação,Alta
+26,"Senha aceita sem regra","O sistema permite cadastrar uma senha sem os requisitos mínimos de segurança",Autenticação,Médio
+27,"Não consigo trocar a senha","Peço para mudar a senha, mas o botão confirma e nada acontece",Autenticação,Alta
+28,"Conta bloqueada sem motivo","Depois de errar a senha uma vez, minha conta ficou bloqueada e não consigo trabalhar",Autenticação,Crítico
+29,"MFA não valida código","A validação do segundo fator rejeita códigos TOTP ainda dentro da janela de validade",Autenticação,Alta
+30,"Código não funciona","O código que chega no celular está certo, mas o sistema diz que está errado",Autenticação,Alta
+31,"Convite expira na hora","O link de convite é criado com validade já vencida por divergência no fuso horário",Autenticação,Alta
+32,"Link de convite vencido","Recebi o convite agora, mas ao clicar diz que ele já expirou",Autenticação,Alta
+33,"Permissões não atualizam","A revogação de privilégios não invalida a sessão ativa e o usuário continua acessando recursos",Autenticação,Alta
+34,"Ex-funcionário ainda entra","Tiraram meu acesso, mas a pessoa ainda consegue abrir o sistema no computador dela",Autenticação,Alta
+35,"Logout mantém sessão","O endpoint de logout não invalida o token armazenado no cliente",Autenticação,Alta
+36,"Continuo dentro depois de sair","Clico em sair, mas se apertar voltar no navegador ainda vejo os dados da conta",Autenticação,Médio
+37,"Usuário duplicado no SSO","A sincronização SCIM cria contas duplicadas quando o e-mail chega com letras maiúsculas",Autenticação,Alta
+38,"Dois cadastros para a mesma pessoa","Meu cadastro apareceu duas vezes depois que entrei pela conta corporativa",Autenticação,Alta
+39,"Acesso de outra equipe","A checagem de autorização não filtra o tenant e expõe registros de outra organização",Segurança,Crítico
+40,"Vejo informações de outro cliente","Ao abrir um chamado, apareceu o nome e os dados de uma empresa que não é a nossa",Segurança,Crítico
+41,"Falha de CSRF","A rota de alteração de e-mail aceita requisições sem validar o token anti-CSRF",Segurança,Alta
+42,"E-mail muda sem confirmação","Consegui trocar o e-mail da conta sem clicar em nenhum link de confirmação",Segurança,Alta
+43,"Injeção no filtro","Parâmetros do filtro são concatenados à consulta SQL sem prepared statements",Segurança,Crítico
+44,"Busca mostra erro estranho","Quando pesquiso um nome com alguns símbolos, aparece uma mensagem com detalhes do banco",Segurança,Médio
+45,"XSS armazenado no perfil","O campo de biografia persiste HTML não sanitizado e executa script para outros usuários",Segurança,Alta
+46,"Código aparece na tela do colega","Escrevi uns sinais no meu perfil e, quando outra pessoa abriu, apareceu uma janela inesperada",Segurança,Alta
+47,"Arquivo enviado sem validação","O serviço de upload confia no MIME informado pelo cliente e aceita arquivo executável",Segurança,Alta
+48,"Anexo perigoso passa pelo envio","Consegui mandar um arquivo que deveria estar bloqueado e ele ficou disponível para baixar",Segurança,Médio
+49,"Dados pessoais nos logs","Logs de auditoria registram números completos de documentos sem mascaramento",Segurança,Alta
+50,"Informação privada no histórico","O histórico de erro mostra o documento inteiro de um cliente para quem abre o suporte",Segurança,Alta
+51,"Chave exposta no repositório","Uma credencial de produção foi incluída por engano no bundle público da aplicação",Segurança,Crítico
+52,"Senha apareceu no arquivo baixado","Baixei o relatório e encontrei uma senha de integração escrita dentro dele",Segurança,Crítico
+53,"CORS aberto demais","A API permite origens arbitrárias com credenciais habilitadas",Segurança,Alta
+54,"Site aceita acesso de qualquer lugar","A equipe de segurança avisou que qualquer site consegue chamar nossa área logada",Segurança,Alta
+55,"Limite de tentativas ausente","O endpoint de recuperação de senha não aplica rate limiting e permite enumeração de contas",Segurança,Alta
+56,"Muitos pedidos de código","Dá para pedir código de recuperação várias vezes seguidas para o mesmo usuário",Segurança,Médio
+57,"Permissão de administrador liberada","O endpoint de exportação verifica apenas se existe login e não confere o papel do usuário",Segurança,Crítico
+58,"Botão de exportar aparece para todos","Uma pessoa sem permissão conseguiu baixar a lista completa de clientes",Segurança,Crítico
+59,"Certificado TLS vencido","O certificado do domínio expirou e a negociação HTTPS está falhando",Infraestrutura,Crítico
+60,"Navegador diz que o site não é seguro","Ao abrir o sistema apareceu um aviso vermelho sobre a segurança da conexão",Infraestrutura,Crítico
+61,"DNS aponta para endereço antigo","A zona DNS ainda resolve o domínio para o IP da infraestrutura desativada",Infraestrutura,Alta
+62,"Endereço do sistema não abre","Depois da mudança, o link da empresa leva a uma página que não existe",Infraestrutura,Alta
+63,"Pods reiniciando sem parar","O deployment entra em CrashLoopBackOff por erro de configuração das variáveis de ambiente",Infraestrutura,Crítico
+64,"Sistema cai e volta sozinho","A página some por alguns minutos e depois volta, repetindo isso várias vezes",Infraestrutura,Crítico
+65,"Fila de mensagens parada","Consumidores Kafka não processam eventos após mudança incompatível no schema",Infraestrutura,Alta
+66,"Pedidos ficam presos","As solicitações aparecem como enviadas, mas não chegam para a equipe responsável",Infraestrutura,Alta
+67,"Disco sem espaço","O volume de logs atingiu 100% e impediu a gravação de novos arquivos",Infraestrutura,Crítico
+68,"Não salva novos registros","O sistema parou de aceitar cadastros e mostra aviso de espaço insuficiente",Infraestrutura,Crítico
+69,"Banco em modo somente leitura","A réplica promovida após failover permaneceu com read_only habilitado",Infraestrutura,Crítico
+70,"Consigo consultar mas não alterar","As telas abrem, só que não consigo salvar nenhuma mudança desde a manutenção",Infraestrutura,Crítico
+71,"Falha no backup noturno","O job de backup termina com código de erro por falta de permissão no bucket",Infraestrutura,Alta
+72,"Cópia de segurança não foi feita","A rotina que deveria guardar os dados de ontem falhou e ninguém recebeu aviso",Infraestrutura,Alta
+73,"Relógio dos servidores diferente","A diferença de NTP entre nós provoca rejeição de certificados e timestamps inconsistentes",Infraestrutura,Alta
+74,"Horário dos registros está errado","Algumas atividades aparecem com horário adiantado e outras com atraso",Infraestrutura,Alta
+75,"Balanceador envia para instância ruim","O health check do load balancer considera saudável uma instância sem conexão ao banco",Infraestrutura,Alta
+76,"Uma parte do site não carrega","Dependendo da tentativa, algumas telas abrem e outras ficam rodando sem parar",Infraestrutura,Alta
+77,"Variável de ambiente ausente","O serviço inicia sem a configuração do provedor de e-mail e falha ao enviar notificações",Infraestrutura,Alta
+78,"Aviso não chega por e-mail","O sistema diz que enviou o aviso, mas ninguém recebe as mensagens",Infraestrutura,Alta
+79,"Migração de banco interrompida","A migration falha por lock prolongado na tabela de pedidos e bloqueia o deploy",Infraestrutura,Crítico
+80,"Atualização deixou o sistema preso","Depois da atualização, a página fica carregando e não termina de abrir",Infraestrutura,Crítico
+81,"API responde 429 para todos","A configuração global de rate limit está compartilhada entre usuários e bloqueia tráfego legítimo",Infraestrutura,Alta
+82,"Diz que fiz coisa demais","Mesmo usando normalmente, aparece uma mensagem mandando esperar antes de continuar",Infraestrutura,Alta
+83,"Consulta sem índice","A busca por data executa full table scan na tabela de eventos e excede o timeout",Performance,Alta
+84,"Relatório demora muito","Para abrir o relatório do mês preciso esperar vários minutos",Performance,Alta
+85,"Bundle inicial muito pesado","O carregamento da aplicação envia dependências não utilizadas e ultrapassa 5 MB",Performance,Alta
+86,"Página demora no celular","No telefone a tela leva uma eternidade para aparecer, embora no computador abra rápido",Performance,Alta
+87,"Vazamento de memória no worker","O processo de geração de miniaturas cresce continuamente até ser encerrado pelo OOM killer",Performance,Crítico
+88,"Sistema trava depois de um tempo","Depois de deixar a tela aberta por algumas horas, tudo fica muito lento e para de responder",Performance,Alta
+89,"N+1 na listagem de pedidos","A consulta dispara uma requisição por registro para carregar os dados do cliente",Performance,Alta
+90,"Lista demora quando tem muitos itens","Com uma lista grande, abrir os detalhes de cada linha deixa a página bem devagar",Performance,Alta
+91,"Imagens sem otimização","A página entrega imagens originais de alta resolução sem compressão ou dimensionamento responsivo",Performance,Alta
+92,"Fotos levam muito para aparecer","As imagens ficam carregando por bastante tempo mesmo com internet boa",Performance,Alta
+93,"Cache não é invalidado","O CDN continua servindo o arquivo JavaScript antigo depois da publicação",Performance,Alta
+94,"Mudança não aparece para todo mundo","Atualizaram a tela, mas algumas pessoas ainda veem a versão antiga do sistema",Performance,Alta
+95,"Exportação ocupa todos os workers","A geração síncrona de CSV bloqueia o pool de requisições durante o processamento",Performance,Alta
+96,"Baixar planilha deixa tudo lento","Quando alguém pede uma planilha grande, o resto da equipe percebe o sistema travando",Performance,Alta
+97,"Busca repete a mesma chamada","O componente dispara duas requisições idênticas a cada digitação por falta de debounce",Performance,Alta
+98,"Pesquisa atualiza a cada letra","Enquanto digito, a tela pisca e parece buscar cada letra separadamente",Performance,Alta
+99,"Resposta da API muito grande","O endpoint retorna campos desnecessários e aumenta o tempo de transferência",Performance,Alta
+100,"Abrir cadastro demora","A tela de cadastro leva bastante tempo para mostrar os dados da pessoa",Performance,Alta
+101,"Lentidão só no horário de pico","A latência p95 do checkout sobe para 12 segundos com aumento de concorrência",Performance,Crítico
+102,"Pagamento fica rodando à noite","No fim do expediente, finalizar uma compra demora muito mais que durante o dia",Performance,Crítico
+103,"Botão salvar fora da tela","Em viewport estreita, o rodapé fixo cobre o botão de salvar",UI/UX,Baixo
+104,"Não acho onde salvar","Preencho tudo, mas o botão para guardar as informações fica escondido no celular",UI/UX,Baixo
+105,"Texto cortado no celular","Um container com largura fixa corta o nome do cliente em telas pequenas",UI/UX,Baixo
+106,"Nome aparece pela metade","Na tela do telefone só dá para ler o começo do nome da empresa",UI/UX,Baixo
+107,"Contraste insuficiente","O texto cinza sobre fundo claro não atende ao contraste mínimo WCAG",UI/UX,Baixo
+108,"Mal dá para ler o aviso","A mensagem é tão clarinha que quase some no fundo branco",UI/UX,Baixo
+109,"Foco do teclado invisível","A remoção do outline impede usuários de teclado de identificar o elemento ativo",UI/UX,Baixo
+110,"Não sei onde estou navegando","Usando só o teclado, não consigo enxergar qual campo está selecionado",UI/UX,Baixo
+111,"Rótulo do campo não acompanha o foco","O placeholder some e o campo não mantém uma label acessível",UI/UX,Baixo
+112,"Esqueci o que era para preencher","Quando começo a digitar, a única dica do campo desaparece",UI/UX,Baixo
+113,"Calendário não seleciona a data","O date picker não propaga o valor escolhido para o estado do formulário",UI/UX,Baixo
+114,"Escolho o dia mas fica vazio","Clico numa data no calendário, mas o campo continua sem nada",UI/UX,Baixo
+115,"Menu abre fora da tela","O popover de filtros é renderizado além do limite visível em telas menores",UI/UX,Baixo
+116,"Não consigo clicar nas opções","O menu aparece cortado na lateral e algumas escolhas ficam escondidas",UI/UX,Baixo
+117,"Ícone sem descrição acessível","Botões com ícones não possuem nome acessível para leitores de tela",UI/UX,Baixo
+118,"Leitor de tela não explica o botão","Para quem usa leitura em voz alta, os botões aparecem sem dizer para que servem",UI/UX,Baixo
+119,"Mensagem de erro some rápido","O toast é removido antes de usuários conseguirem ler a orientação",UI/UX,Baixo
+120,"Aviso desaparece antes de eu ler","Quando dá erro, a mensagem some tão rápido que não consigo entender",UI/UX,Baixo
+121,"Campo aceita formato errado","A validação client-side não verifica o formato do endereço de e-mail",Outro,Alta
+122,"E-mail digitado errado passa","O cadastro aceita um endereço sem arroba e depois não consigo receber os avisos",Outro,Alta
+123,"Data aparece um dia antes","A conversão UTC para horário local desloca a data exibida na tela",Outro,Alta
+124,"Agendamento mudou de dia","Marquei para segunda-feira, mas o sistema salvou como domingo",Outro,Alta
+125,"Valor arredondado errado","A serialização decimal perde precisão e altera o total em operações com parcelas",Outro,Crítico
+126,"Total da compra está diferente","A soma da nota não bate com os valores que aparecem nos itens",Checkout,Crítico
+127,"Cupom aplicado duas vezes","A lógica de idempotência não impede a duplicação do desconto em reenvios",Checkout,Alta
+128,"Desconto ficou maior do que devia","Apertei aplicar uma vez, mas o preço caiu duas vezes",Checkout,Alta
+129,"Webhook processado em duplicidade","Eventos repetidos do gateway criam duas cobranças para o mesmo pedido",Checkout,Crítico
+130,"Cartão cobrado duas vezes","A compra deu erro na tela, tentei de novo e agora aparecem duas cobranças",Checkout,Crítico
+131,"Pagamento aprovado mas pedido aberto","A confirmação do provedor não atualiza o estado da transação no sistema",Checkout,Crítico
+132,"Meu pagamento saiu mas consta pendente","O banco confirmou a cobrança, porém o pedido continua como não pago",Checkout,Crítico
+133,"Estorno não chega ao cliente","A chamada de refund retorna sucesso, mas o estado local não é atualizado",Checkout,Alta
+134,"Devolveram mas ainda aparece cobrado","O suporte fez o estorno, só que a compra continua aparecendo como paga",Checkout,Alta
+135,"Nota fiscal sem imposto","O cálculo tributário não inclui a alíquota configurada para o município",Checkout,Crítico
+136,"Nota saiu com valor errado","A nota fiscal mostra um imposto diferente do combinado com o cliente",Checkout,Crítico
+137,"Carrinho perde os produtos","A sessão do carrinho é descartada ao alternar entre subdomínios",Checkout,Alta
+138,"Minha sacola esvaziou","Coloquei produtos no carrinho e, quando voltei para terminar, não estavam mais lá",Checkout,Alta
+139,"Endereço não salva no pedido","O payload de checkout omite o complemento do endereço",Checkout,Alta
+140,"Entrega veio sem complemento","Coloquei apartamento e bloco, mas essas informações não foram para o pedido",Checkout,Alta
+141,"Botão de pagar não responde","O handler do botão não é associado após uma atualização parcial do formulário",Checkout,Crítico
+142,"Aperto pagar e nada acontece","Já cliquei várias vezes para concluir e a tela não dá sinal de que recebeu",Checkout,Crítico
+143,"Pedido fica duplicado","Uma repetição automática da requisição cria um segundo pedido com o mesmo conteúdo",Checkout,Alta
+144,"Recebi dois e-mails do mesmo pedido","A notificação é enviada novamente quando o serviço tenta recuperar uma falha",Outro,Baixo
+145,"Arquivo baixado está vazio","A exportação retorna status de sucesso, mas o conteúdo do CSV tem apenas o cabeçalho",Outro,Alta
+146,"Planilha veio sem os dados","Baixei o arquivo para conferir e só tem os nomes das colunas",Outro,Alta
+147,"Notificação mostra pessoa errada","O cache compartilhado mistura o destinatário entre duas sessões de usuários",Outro,Crítico
+148,"Aviso de outro cliente apareceu para mim","Recebi uma mensagem que parece ser de outra empresa",Outro,Crítico
+149,"Filtro continua escondendo registros","A paginação não é reiniciada quando uma nova condição de busca é aplicada",Outro,Alta
+150,"Não encontro os registros mais novos","Uso o filtro para procurar outra coisa e depois os itens recentes somem da lista",Outro,Alta
+151,"Relatório em branco","Fui puxar o relatório da colheita de soja e a tela ficou toda em branco, sumiu os números tudo","UI/UX","Médio"
+152,"Botão amassado","O botão de pagar tá com as letras tudo espremida, mal dá pra ler no meu celular","UI/UX","Baixo"
+153,"Bolinha rodando infinita","Tô tentando entrar na conta desde ontem, coloco a senha e fica só rodando uma bolinha e não entra nem com reza","Autenticação","Alta"
+154,"Cachorro não aparece","O sistema de banho e tosa não tá mostrando o meu shih tzu na agenda de hoje, bagunçou tudo e anotei no papel","Outro","Médio"
+155,"Pix saiu mas não confirmou","Fiz o pix do lanche, o dinheiro sumiu da minha conta do banco, mas no aplicativo de vocês diz que não paguei","Checkout","Crítico"
+156,"Erro NF-e SP","Módulo de faturamento corporativo retornando timeout (Erro 504) ao tentar processar lote de notas fiscais da filial","Infraestrutura","Alta"
+157,"App mudou de cor","O aplicativo de vocês ficou azul do nada, antes era verde, tá muito feio e esquisito assim","UI/UX","Baixo"
+158,"Hackearam minha conta","Recebi um email dizendo que minha senha mudou, mas eu não fiz nada! Tem alguém usando o meu aplicativo","Autenticação","Crítico"
+159,"Dados de outras pessoas","A tela do meu perfil carregou com o nome e CPF de outra pessoa que eu nem conheço, tô vendo os dados dela!","Segurança","Crítico"
+160,"Vídeo mudo","Tento dar play na aula do curso e fica mudo. A imagem aparece certinho mas o som não sai de jeito nenhum","UI/UX","Médio"
+161,"Sistema de ponto caiu","Fui bater o ponto na catraca da empresa e a maquininha apita dizendo que o sistema central tá fora do ar","Infraestrutura","Crítico"
+162,"Carrinho esvaziando sozinho","Toda vez que eu coloco o shampoo no carrinho de compras e vou pro pagamento, o carrinho pisca e aparece vazio","Checkout","Alta"
+163,"Compartilhamento de tela não funciona","Quero compartilhar a tela pelo anyviewer porém não fica disponível para a outra máquina",Outro,Baixo
+164,"Coleira some da tela","No petshop, escolhi a coleira e ela sumiu da lista quando voltei uma etapa",Outro,Baixo
+165,"Espaçamento inconsistente no menu","Componente de navegação aplica margin diferente em Safari e Chrome, quebrando a grade responsiva",UI/UX,Baixo
+166,"Botão ficou torto","O botão de fechar o cadastro de funcionário ficou meio torto no celular",UI/UX,Baixo
+167,"Label encobre ícone de perfil","A regra de overflow do header causa sobreposição do label com o ícone em viewport de 320px",UI/UX,Baixo
+168,"Foto do cachorro cortada","A foto do meu cachorro aparece cortada na ficha de banho e tosa, mas o resto tá normal",Outro,Baixo
+169,"Placeholder truncado no formulário","O placeholder do campo de endereço sofre text-overflow prematuro em telas de 360px",UI/UX,Baixo
+170,"Texto miúdo no ponto","A letra do aviso de intervalo ficou pequena demais pra ler na tela da catraca",UI/UX,Baixo
+171,"Ícone sem estado hover","O componente de confirmação do checkout não aplica estado hover conforme a especificação visual",Checkout,Baixo
+172,"Mapa meio desalinhado","O mapa das entregas fica alguns pixels pra direita quando abro no notebook",UI/UX,Baixo
+173,"Cor de status divergente","Badge de pedido entregue utiliza hexadecimal diferente do design system homologado",UI/UX,Baixo
+174,"Filtro parece apertado","A caixa de filtro da plataforma de cursos ficou espremida e o texto quase encosta na borda",UI/UX,Baixo
+175,"Ordenação visual inconsistente","A tabela de funcionários exibe o indicador de sort com alinhamento vertical incorreto",Outro,Baixo
+176,"Número quebrado no card","No painel da fazenda, o número de hectares fica cortado no cantinho do card",UI/UX,Baixo
+177,"Quebra de linha no tooltip","Tooltip de temperatura agrícola usa largura fixa e quebra palavras no meio",UI/UX,Baixo
+178,"Tela piscando rapidinho","Quando abro a conta da fintech, a tela dá uma piscada antes de mostrar o saldo",Autenticação,Baixo
+179,"Favicon ausente no portal","O portal de RH não define favicon na rota de folha de pagamento",Outro,Baixo
+180,"Botão de copiar sumiu","Na página do pedido eu até vejo o código, mas o botãozinho de copiar desapareceu",Checkout,Baixo
+181,"Padding irregular no modal","Modal de atualização cadastral apresenta 8px de padding no rodapé em vez de 16px",UI/UX,Baixo
+182,"Foto da nota fica estourada","A imagem da nota fiscal aparece com qualidade bem ruim no histórico da entrega",Outro,Baixo
+183,"Texto sem contraste suficiente","O link secundário do catálogo não atende ao contraste definido no tema acessível",UI/UX,Baixo
+184,"Setinha ficou estranha","A setinha do filtro de cursos parece deslocada e fica por cima da palavra",UI/UX,Baixo
+185,"Cursor inadequado em elemento clicável","Cards de rota não definem cursor pointer apesar de possuírem handler de clique",UI/UX,Baixo
+186,"Campo pula de lugar","Na folha de pagamento o campo de banco dá um pulinho quando seleciono a agência",Outro,Baixo
+187,"Máscara visual inconsistente","Componente de telefone usa máscara diferente entre cadastro de fornecedor e cadastro de colaborador",Outro,Baixo
+188,"Imagem fica preta por um segundo","A foto do produto agrícola fica preta rapidinho enquanto carrega a galeria",UI/UX,Baixo
+189,"Loader fora do centro","Spinner do modal de pagamento está posicionado 12px acima do centro geométrico",Checkout,Baixo
+190,"Nome cortado no crachá","O nome comprido do funcionário fica pela metade no cartão de identificação",Outro,Baixo
+191,"Link sem estado de foco","Elementos navegáveis por teclado não exibem focus ring no módulo de matrículas",UI/UX,Baixo
+192,"Ícone de entrega virou quadrado","O caminhãozinho do rastreio aparece como um quadradinho depois da atualização do app",Outro,Baixo
+193,"Tabela perde borda inferior","A última linha da grade de beneficiários não renderiza border-bottom após paginação",Outro,Baixo
+194,"Botão de aula tá escondido","No celular o botão de próxima aula fica lá embaixo e parece que desapareceu",UI/UX,Baixo
+195,"Placeholder com capitalização errada","Campo de busca de cursos renderiza placeholder com capitalização divergente do padrão editorial",UI/UX,Baixo
+196,"Preço ficou grudado","No e-commerce o preço parcelado fica colado no valor à vista e confunde um pouco",Checkout,Baixo
+197,"Alinhamento do total divergente","Resumo da compra usa text-align left no total enquanto os demais valores estão à direita",Checkout,Baixo
+198,"Avatar não carrega de primeira","Na área de colaboradores, o avatar só aparece depois que atualizo a página",Outro,Baixo
+199,"Tooltip aparece atrás do card","A propriedade z-index do tooltip de rota é menor que a do container de pedidos",UI/UX,Baixo
+200,"Botão de sair tá baixinho","O botão de logout ficou menor que os outros e parece fora do padrão",Autenticação,Baixo
+201,"Campo numérico aceita scroll visual indevido","Input de quantidade exibe alteração de valor ao rolar o mouse sobre o componente focado",Outro,Baixo
+202,"Carrinho mostra um espacinho estranho","Tem um espaço branco enorme entre o frete e o total quando compro ração",Checkout,Baixo
+203,"Ícone desalinha após carregamento","Componente de status do pedido muda 2px de alinhamento depois do lazy load da fonte",Checkout,Baixo
+204,"Texto de erro cortado","Quando escrevo o CPF errado, aparece só metade do recado de erro",Autenticação,Baixo
+205,"Modal não preserva largura mínima","O diálogo de consentimento encolhe abaixo de 280px em viewport estreita",Segurança,Baixo
+206,"Foto do instrutor fica espichada","A foto do professor na plataforma de cursos fica esticada quando a janela tá pequena",UI/UX,Baixo
+207,"Mensagem de sucesso sem quebra","Toast de emissão de nota usa white-space: nowrap e excede a largura em português",Outro,Baixo
+208,"Botão de mapa sem desenho","No rastreio da fazenda o botão de mapa aparece sem o ícone, só fica o espaço vazio",UI/UX,Baixo
+209,"Campo de CEP perde máscara após blur","A máscara de CEP é removida no blur e o valor permanece sem formatação",Outro,Baixo
+210,"Cor da entrega tá diferente","A entrega atrasada aparece azul em vez daquele amarelo que o pessoal usa",Outro,Baixo
+211,"Inconsistência de raio nos cards","Cards do dashboard de logística usam border-radius de 4px em vez de 8px",UI/UX,Baixo
+212,"Boleto fica apertado","No e-commerce o código do boleto fica cortado no celular e eu não consigo copiar inteiro",Checkout,Baixo
+213,"Altura inconsistente de campo","Input de número do lote possui height de 44px enquanto os demais campos do formulário usam 48px",UI/UX,Baixo
+214,"Pedido não atualiza na hora","No app de entrega marquei a coleta como feita e o status demorou um tempão pra mudar",Outro,Médio
+215,"Retry duplicando evento","Mecanismo de retry do serviço de expedição republica o evento de coleta após timeout sem idempotency key",Infraestrutura,Médio
+216,"Vale-refeição aparece zerado","Meu saldo de benefício no RH ficou em zero por alguns minutos e depois voltou",Outro,Médio
+217,"Cache de saldo desatualizado","A camada de cache do saldo mantém valor anterior após atualização do ledger",Performance,Médio
+218,"Aula não salva progresso","Assisti metade da aula e quando voltei começou do zero, mó chato",Outro,Médio
+219,"Checkpoint não persiste","Endpoint de progresso do LMS responde 200, porém a transação de checkpoint não chega ao banco",Outro,Médio
+220,"Busca de ração demora","Pra procurar um saco de ração o app fica pensando uns bons segundos",Performance,Médio
+221,"Latência elevada na busca","Consulta de catálogo do e-commerce apresenta p95 acima de 2,5s sob carga moderada",Performance,Médio
+222,"Tela de rota dá umas travadinhas","Quando acompanho quatro entregas ao mesmo tempo, o mapa começa a engasgar",Performance,Médio
+223,"Renderização excessiva do mapa","Atualizações frequentes de posição provocam re-render completo do componente de mapa",Performance,Médio
+224,"Não consigo trocar a senha","Clico pra salvar a nova senha e ele volta pro formulário como se nada tivesse acontecido",Autenticação,Médio
+225,"Validação de senha ignora regra","Front-end aceita senha abaixo do tamanho mínimo e o backend retorna validação inconsistente",Autenticação,Médio
+226,"Pix fica pendurado","Faço o pagamento e fica aquela rodinha sem saber se foi ou não",Checkout,Médio
+227,"Webhook de pagamento atrasado","Processamento assíncrono do webhook Pix apresenta atraso intermitente de até 90 segundos",Checkout,Médio
+228,"Nota do frete não aparece","Terminei uma entrega agrícola mas a nota ainda não apareceu no histórico",Outro,Médio
+229,"Fila de NF-e acumula","Consumer da fila de faturamento apresenta lag crescente durante o fechamento diário",Infraestrutura,Médio
+230,"Feriado ficou errado","O sistema de ponto marcou feriado como dia normal na filial de Manaus",Outro,Médio
+231,"Calendário regional inconsistente","Serviço de jornadas ignora a tabela de feriados regionalizada para uma unidade específica",Outro,Médio
+232,"Filtro de funcionário some","Uso o filtro por cargo e, quando volto pra lista, ele desaparece sozinho",Outro,Médio
+233,"Estado de filtro não é restaurado","Rota da listagem perde query params ao retornar do detalhe do colaborador",Outro,Médio
+234,"Foto da entrega não envia","A foto do pedido trava em 80% e preciso tentar de novo",Outro,Médio
+235,"Upload reinicia após perda de rede","Upload multipart não retoma o chunk atual quando ocorre reconexão do cliente",Infraestrutura,Médio
+236,"Aplicativo fecha ao abrir relatório","Tentei ver o relatório de vendas no tablet e o app simplesmente fechou",Outro,Médio
+237,"Exceção não tratada no parser","Parser do relatório lança NullReferenceException ao receber coluna opcional ausente",Outro,Médio
+238,"Saldo demora pra aparecer","Abro a conta da fintech e o saldo fica em branco antes de carregar",Performance,Médio
+239,"Consulta de extrato sem índice","Query do extrato executa full table scan e aumenta a latência para contas com alto volume",Performance,Médio
+240,"Cupom não pega","Coloquei o cupom da campanha e ele diz que não vale, mas tava dentro da data",Checkout,Médio
+241,"Validade de cupom por timezone","Regra de expiração compara timestamp UTC com horário local da campanha",Checkout,Médio
+242,"Login me joga pra tela errada","Entro pelo link do curso e depois do login caio na página inicial em vez da aula",Autenticação,Médio
+243,"Redirect URI inconsistente","Fluxo OAuth perde o parâmetro de retorno e direciona para a rota padrão após autenticação",Autenticação,Médio
+244,"Mensagem de estoque confusa","O produto diz que tem 1 unidade, clico em comprar e aparece que acabou",Checkout,Médio
+245,"Race condition no estoque","Duas requisições concorrentes conseguem reservar a mesma última unidade durante pico",Checkout,Médio
+246,"Catraca registra duas vezes","Passei o crachá uma vez e o ponto apareceu duplicado no espelho",Outro,Médio
+247,"Evento de batida processado duas vezes","Consumer de relógio de ponto não deduplica mensagens com o mesmo transaction_id",Infraestrutura,Médio
+248,"Mapa mostra carro longe","O motorista já tá na minha rua, mas o mapa continua mostrando ele lá atrás",Outro,Médio
+249,"Posição GPS com atraso","Pipeline de telemetria entrega posições com atraso médio de 35 segundos em uma região",Infraestrutura,Médio
+250,"Senha aceita espaço estranho","Cadastrei uma senha com espaço no final e depois não consigo mais entrar",Autenticação,Médio
+251,"Normalização de credencial divergente","Serviço de login aplica trim no identificador enquanto o reset de senha preserva whitespace",Autenticação,Médio
+252,"Aula trava no meio","O vídeo da plataforma de cursos para no capítulo 3 e só volta depois de atualizar",Performance,Médio
+253,"Buffer insuficiente no player","Player HLS apresenta underrun frequente com bitrate adaptativo durante conexões estáveis",Performance,Médio
+254,"Boletim do funcionário demora","A tela de avaliação leva muito pra mostrar as notas do time",Performance,Médio
+255,"N+1 na consulta de avaliações","Endpoint de feedback executa consultas adicionais por colaborador, gerando padrão N+1",Performance,Médio
+256,"Relatório da safra sai faltando linha","Gerei o relatório do milho e uma parte das fazendas não apareceu",Outro,Médio
+257,"Paginação ignora cursor","Serviço de relatórios desconsidera o cursor recebido e reprocessa a primeira página",Outro,Médio
+258,"Checkout volta pro carrinho","Preencho o endereço, escolho o frete e de repente ele me manda de volta pro carrinho",Checkout,Médio
+259,"Sessão do checkout expira em etapa intermediária","TTL da sessão de compra é menor que o tempo esperado para preenchimento do formulário",Checkout,Médio
+260,"Cadastro do pet não termina","Coloquei os dados do gato, apertei salvar e fiquei preso naquela telinha",Outro,Médio
+261,"Transação de cadastro fica aberta","Timeout do serviço de cadastro encerra a requisição, mas a transação JDBC permanece ativa",Infraestrutura,Médio
+262,"Notificação chega atrasada","O aviso de reposição de estoque chegou só depois que já tinha comprado",Outro,Médio
+263,"Consumer com atraso variável","Fila de notificações apresenta processamento fora da janela de SLA em picos de mensagens",Infraestrutura,Médio
+264,"Tela de despesas pisca","No RH, abrir uma despesa faz os totais mudarem duas vezes bem na frente da gente",UI/UX,Médio
+265,"Race condition no estado do dashboard","Duas chamadas concorrentes sobrescrevem o estado agregado de despesas no cliente",UI/UX,Médio
+266,"Pagamento recusado sem motivo","Meu cartão foi recusado e não apareceu explicação nenhuma na tela",Checkout,Médio
+267,"Mapeamento de erro ausente","Gateway retorna status code 422, porém o adaptador converte a falha para resposta genérica",Checkout,Médio
+268,"Pesquisa acha coisa repetida","Busco o nome do curso e aparecem vários resultados idênticos",Performance,Médio
+269,"Consulta retorna duplicatas","Join entre catálogo e disponibilidade não aplica DISTINCT nem chave composta adequada",Performance,Médio
+270,"Tela de comissão fica velha","Atualizo uma entrega e a comissão do motoboy continua mostrando o valor antigo",Outro,Médio
+271,"Invalidação de cache incompleta","Mutação de comissão não invalida a chave derivada usada no dashboard do entregador",Performance,Médio
+272,"Foto do perfil não salva","Troquei a foto no crachá e quando volto ela continua com a antiga",Outro,Médio
+273,"Cache de avatar não invalida","CDN serve versão anterior do avatar após upload concluído com sucesso",Infraestrutura,Médio
+274,"Código da nota vem diferente","O código que recebo por e-mail não bate com o código que aparece no aplicativo",Outro,Médio
+275,"Identificador divergente entre serviços","Serviço de emissão usa o número interno enquanto o notificator usa o identificador externo",Outro,Médio
+276,"Tela de juros demora","No empréstimo da fintech o valor dos juros demora a aparecer depois que mexo no prazo",Performance,Médio
+277,"Recálculo síncrono bloqueando UI","Simulação financeira executa cálculo pesado na thread principal após cada alteração de prazo",Performance,Médio
+278,"Calendário da fazenda não abre","Quando entro no calendário de plantio aparece uma tela cinza e não vai",UI/UX,Médio
+279,"Erro de hidratação no calendário","Componente SSR do calendário produz mismatch de hydration após carregar feriados da API",UI/UX,Médio
+280,"Botão do recibo não funciona direito","Toco pra baixar o recibo e às vezes não acontece nada, aí na segunda funciona",Outro,Médio
+281,"Race condition no download","Dois handlers de clique são registrados durante a montagem e disparam o download duplicado",Outro,Médio
+282,"Carrinho troca a quantidade sozinho","Coloquei três potes de comida e depois apareceu só dois sem eu mexer",Checkout,Médio
+283,"Concorrência na atualização de carrinho","Atualizações paralelas usam versão obsoleta do carrinho e perdem uma alteração de quantidade",Checkout,Médio
+284,"A busca trava tudo","No pico da campanha de ração, pesquisar qualquer produto deixa o app quase sem responder",Performance,Alta
+285,"Exaustão do pool de conexões","Sob carga de checkout o pool JDBC atinge o limite e novas transações começam a falhar",Infraestrutura,Alta
+286,"Pix cobrou duas vezes","Fiz um pagamento só e saiu dinheiro duas vezes da conta, deu ruim feio",Checkout,Alta
+287,"Idempotência ausente no pagamento","Endpoint de confirmação aceita reprocessamento do mesmo transaction_id e gera dupla captura",Checkout,Alta
+288,"Login fica rodando sem fim","Depois da atualização, minha conta fica com a bolinha girando e não entra mais",Autenticação,Alta
+289,"Timeout no provedor de identidade","Fluxo OIDC excede 15s e o gateway encerra a requisição com 504",Autenticação,Alta
+290,"Relatório agrícola derruba o app","Quando puxo o relatório grandão da safra, o celular fecha sozinho",Performance,Alta
+291,"Memory leak no gerador de PDF","Heap utilizado pelo serviço de relatórios cresce a cada exportação e não é liberado pelo GC",Performance,Alta
+292,"Pedidos desaparecem da lista","No painel da transportadora vários pedidos somem depois de usar o filtro de região",Outro,Alta
+293,"Consulta perde registros por paginação","Cursor de paginação é calculado antes do filtro final e omite itens no meio do dataset",Outro,Alta
+294,"Conta bloqueou sem explicação","Minha conta corporativa travou depois de uma troca de senha e ninguém consegue liberar",Autenticação,Alta
+295,"Bloqueio aplicado indevidamente","Regra de lockout conta tentativas inválidas de outra aplicação e bloqueia usuários legítimos",Autenticação,Alta
+296,"Estoque reserva e some","Comprei o último saco de ração, o dinheiro foi aprovado e depois o pedido ficou sem item",Checkout,Alta
+297,"Commit parcial na reserva","Transação de checkout confirma pagamento antes da persistência da reserva de estoque",Checkout,Alta
+298,"Mapa congela no horário de pico","Quando tem muita entrega na cidade, o mapa para de mexer e fica travadão",Performance,Alta
+299,"Thread pool saturado por websocket","Conexões de rastreamento consomem threads do servidor até esgotar o executor padrão",Infraestrutura,Alta
+300,"Folha de pagamento ficou errada","O sistema calculou um desconto de benefício duas vezes e o valor final veio menor",Outro,Alta
+301,"Regra de desconto duplicada","Pipeline de folha aplica a mesma rubrica em duas etapas por falta de chave de correlação",Outro,Alta
+302,"Senha vazou no e-mail","Recebi um e-mail de recuperação mostrando informação que não devia aparecer ali",Segurança,Alta
+303,"Exposição de token em resposta","Endpoint de recuperação inclui token de acesso no payload devolvido ao cliente",Segurança,Alta
+304,"Curso inteiro ficou indisponível","Ninguém da turma consegue abrir as aulas desde a manhã, só dá tela de erro",Outro,Alta
+305,"Erro 503 no serviço de vídeo","Microsserviço de streaming retorna status code 503 sob aumento súbito de requisições",Infraestrutura,Alta
+306,"Nota fiscal prende o fechamento","O faturamento da filial não termina e fica tudo parado esperando a nota",Infraestrutura,Alta
+307,"Deadlock no fechamento fiscal","Transações concorrentes sobre invoice e ledger entram em deadlock durante o batch noturno",Infraestrutura,Alta
+308,"Rastreamento mostra pedido de outro cliente","No meu painel apareceu uma entrega que claramente não é minha",Segurança,Alta
+309,"Falha de isolamento no tenant","Consulta de rastreio não aplica tenant_id no predicado e retorna dados de outra organização",Segurança,Alta
+310,"App da fazenda reinicia sozinho","Quando sincronizo muitos talhões, o aplicativo fecha e abre de novo",Performance,Alta
+311,"Crash por payload volumoso","Processamento do lote de talhões causa OutOfMemoryError durante a desserialização JSON",Infraestrutura,Alta
+312,"Pagamento fica aprovado e depois volta","O app diz aprovado e alguns minutos depois mostra pagamento falhou, fiquei sem saber o que vale",Checkout,Alta
+313,"Estado de pagamento não monotônico","Eventos fora de ordem permitem transição de CAPTURED para FAILED sem compensação",Checkout,Alta
+314,"Funcionário não recebe holerite","O holerite foi gerado, mas ninguém do setor conseguiu baixar o arquivo",Outro,Alta
+315,"Fila de documentos está represada","Consumer do serviço de holerites apresenta backlog contínuo e não consegue drenar a fila",Infraestrutura,Alta
+316,"Filtro de curso apaga resultados","Seleciono uma categoria e parece que o sistema esconde cursos que ainda deveriam aparecer",Outro,Alta
+317,"Índice composto incompatível","Plano de execução ignora o índice usado pelo filtro combinado e provoca full scan em produção",Performance,Alta
+318,"Cadastro do pet perde dados","Salvei o peso e a vacina do animal, mas depois ficaram só os dados básicos",Outro,Alta
+319,"Update concorrente sobrescreve campos","Operações parciais usam PUT completo e uma atualização tardia apaga atributos persistidos",Outro,Alta
+320,"Chamada da entrega não abre","O motorista toca no botão de ligar e o app simplesmente não abre o telefone",UI/UX,Alta
+321,"Deep link malformado no dispositivo","Handler de discagem monta URI inválida para uma parcela dos números internacionais",UI/UX,Alta
+322,"Saldo da carteira fica negativo","Fiz uma compra pequena e o app mostrou minha carteira negativa por alguns minutos",Outro,Alta
+323,"Consistência eventual excede janela","Projeção de saldo demora além do SLA e exibe valor negativo temporário após débito",Performance,Alta
+324,"Hackearam meu acesso","Recebi aviso de troca de senha que não fiz e a conta ficou aberta pra outra pessoa",Autenticação,Crítico
+325,"Bypass de autorização","Endpoint administrativo aceita JWT válido sem verificar a role exigida para executar a operação",Segurança,Crítico
+326,"Pagamento aprovado sem dinheiro","A fintech aprovou uma transferência mesmo sem saldo disponível e depois o valor ficou negativo",Outro,Crítico
+327,"Falha de atomicidade no ledger","Transferência pode ser confirmada no serviço de pagamentos sem débito correspondente no ledger",Outro,Crítico
+328,"Sumiu tudo do banco","A base do sistema agrícola parou de responder e o painel não encontra mais nenhum registro",Infraestrutura,Crítico
+329,"Corrupção de dados após failover","Processo de failover promove réplica atrasada e causa divergência de registros confirmados",Infraestrutura,Crítico
+330,"Cartão cobrado sem pedido","Fizeram a cobrança no meu cartão e o pedido nem existe mais no histórico",Checkout,Crítico
+331,"Captura sem persistência de pedido","Gateway confirma a captura, mas a transação de criação do pedido sofre rollback após timeout",Checkout,Crítico
+332,"Vazou dado de cliente","Consegui abrir o documento de outra empresa trocando só um número no link, isso tá muito errado",Segurança,Crítico
+333,"IDOR em documento fiscal","Endpoint de download aceita object_id arbitrário sem validação de autorização por tenant",Segurança,Crítico
+334,"Senha aparece no log","Na tela de suporte vimos a senha do cliente escrita no log, deu um medo danado",Segurança,Crítico
+335,"Credencial exposta em logs","Middleware registra Authorization header completo em nível INFO nos logs de produção",Segurança,Crítico
+336,"Sistema de ponto caiu geral","A empresa inteira ficou sem conseguir bater ponto porque o serviço central caiu",Infraestrutura,Crítico
+337,"Indisponibilidade total do serviço de jornada","Cluster do serviço de ponto entra em CrashLoopBackOff e não mantém réplicas prontas",Infraestrutura,Crítico
+338,"Checkout trava e cobra mesmo assim","A tela ficou travada, tentei de novo e depois apareceram duas cobranças no cartão",Checkout,Crítico
+339,"Retry sem controle causando dupla captura","Timeout no gateway dispara retry síncrono e processa a mesma cobrança novamente",Checkout,Crítico
+340,"Apaguei um aluno e sumiu a turma inteira","Fui excluir um cadastro e todos os alunos daquela turma desapareceram junto",Outro,Crítico
+341,"Cascade delete indevido","Foreign key com ON DELETE CASCADE remove registros de turmas ao excluir um único aluno",Outro,Crítico
+342,"Meu salário não entrou","O sistema de folha processou como pago, mas a remessa bancária não saiu e o pessoal ficou sem receber",Outro,Crítico
+343,"Falha no job de remessa bancária","Batch marca a folha como LIQUIDADA antes da geração e transmissão do arquivo bancário",Infraestrutura,Crítico
+344,"Curso privado abriu pra qualquer um","Mandei o link de uma aula restrita e uma pessoa sem acesso conseguiu assistir",Segurança,Crítico
+345,"Autorização ausente em conteúdo privado","Serviço de streaming valida apenas o token de sessão e não consulta a ACL do curso",Segurança,Crítico
+346,"Pedido de cliente aparece pra mim","Entrei no meu painel e vi endereço, telefone e pedido de outra pessoa",Segurança,Crítico
+347,"Quebra de isolamento entre contas","Query de pedidos omite account_id e permite leitura cruzada entre consumidores",Segurança,Crítico
+348,"Banco ficou travado de vez","Depois da carga da safra, o banco ficou sem responder e o sistema inteiro parou",Infraestrutura,Crítico
+349,"Saturação de conexões indisponibiliza API","Connection pool e max_connections do PostgreSQL atingem o limite, causando falha generalizada",Infraestrutura,Crítico
+350,"Pix confirmado duas vezes","Meu Pix foi processado em duplicidade e tirou o dobro do dinheiro da conta",Checkout,Crítico
+351,"Webhook sem deduplicação financeira","Mesmo event_id é aplicado duas vezes no ledger por ausência de constraint de unicidade",Checkout,Crítico
+352,"Conta de administrador foi tomada","Troquei a senha e mesmo assim alguém continuou entrando como admin",Autenticação,Crítico
+353,"Refresh token reutilizável após revogação","Serviço de autenticação aceita refresh token revogado por falta de verificação de jti",Autenticação,Crítico
+354,"Dados de clientes misturados","Ao abrir os pedidos do dia, apareceram nomes e endereços de pessoas de outras empresas",Segurança,Crítico
+355,"Vazamento cross-tenant em relatório","Endpoint de exportação ignora o filtro de tenant e agrega dados de múltiplas organizações",Segurança,Crítico
+356,"Nota fiscal errada para outro cliente","A nota fiscal gerada veio com os dados de outra empresa e o faturamento ficou comprometido",Outro,Crítico
+357,"Race condition na numeração fiscal","Processos concorrentes geram o mesmo número de NF-e para documentos distintos",Infraestrutura,Crítico
+358,"Sistema apaga pagamento quitado","Depois de uma reconciliação, uma transferência que já estava paga apareceu como estornada sem eu pedir",Outro,Crítico
+359,"Reconciliação não idempotente","Job noturno reaplica eventos liquidados e altera o estado contábil de transações já conciliadas",Outro,Crítico
+360,"Aplicativo inteiro ficou fora do ar","O app de entregas não abre pra ninguém e só aparece mensagem de erro desde cedo",Infraestrutura,Crítico
+361,"API em loop de reinicialização","Deployment entra em CrashLoopBackOff após mudança de configuração e mantém zero pods ready",Infraestrutura,Crítico
+362,"Minha conta foi invadida de novo","Mesmo depois de trocar a senha, alguém continua vendo meus dados e fazendo alterações na conta",Autenticação,Crítico
+363,"Sessão privilegiada não é invalidada","Após alteração de credencial administrativa, sessões existentes permanecem válidas sem revogação de tokens",Autenticação,Crítico
